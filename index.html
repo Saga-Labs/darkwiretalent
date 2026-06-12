@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Darkwire Talent</title>
+<meta name="description" content="Darkwire Talent — creator representation and brand partnerships." />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;700;900&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet" />
+<style>
+  :root{
+    --bg:#ece8e1;
+    --ink:#14110f;
+    --accent:#ff3b00;
+    --img:url('https://storage.googleapis.com/savesoravideos.firebasestorage.app/generated_videos/195F2TcBmTNc396NLJRYVkbdkNf1/6a1d5c6c8ed09e9e47341c9d34650c16.png');
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  html,body{height:100%}
+  body{
+    background:var(--bg);
+    color:var(--ink);
+    font-family:'Archivo',Helvetica,Arial,sans-serif;
+    -webkit-font-smoothing:antialiased;
+  }
+  a{color:inherit;text-decoration:none}
+
+  .stage{
+    position:relative;min-height:100vh;width:100%;
+    display:grid;grid-template-rows:auto 1fr auto;
+    overflow:hidden;
+  }
+
+  /* hero image, full bleed, anchored lower so the top is clear for type */
+  .photo{
+    position:absolute;inset:0;
+    background:var(--img) center 38% / cover no-repeat;
+    z-index:0;
+  }
+  .photo::after{                /* soft top scrim for legibility */
+    content:"";position:absolute;inset:0;
+    background:linear-gradient(180deg,rgba(236,232,225,.92) 0%,rgba(236,232,225,.45) 26%,rgba(236,232,225,0) 46%);
+  }
+
+  /* top bar */
+  .top{position:relative;z-index:2;display:flex;justify-content:space-between;align-items:center;
+    padding:26px 34px;font-family:'Space Mono',monospace;font-size:12.5px;letter-spacing:.12em;text-transform:uppercase}
+  .top .mark{display:flex;align-items:center;gap:9px;font-weight:700}
+  .top .mark .dot{width:8px;height:8px;background:var(--accent);border-radius:50%}
+  .top a:hover{color:var(--accent)}
+
+  /* center hero */
+  .hero{position:relative;z-index:2;padding:14px 34px 0;align-self:start}
+  .labels{display:flex;gap:46px;flex-wrap:wrap;font-family:'Space Mono',monospace;
+    font-size:12.5px;letter-spacing:.1em;text-transform:uppercase;color:var(--accent);margin-bottom:18px}
+  .labels span{max-width:15ch;line-height:1.35;color:var(--ink)}
+  .labels span b{color:var(--accent);font-weight:700;display:block;margin-bottom:2px}
+  h1{
+    font-weight:900;text-transform:uppercase;
+    font-size:clamp(64px,18vw,230px);
+    line-height:.84;letter-spacing:-.02em;
+    mix-blend-mode:normal;
+  }
+  .tagline{margin-top:22px;max-width:30ch;font-size:clamp(15px,2vw,19px);font-weight:500;line-height:1.45}
+
+  /* bottom contact */
+  .foot{position:relative;z-index:2;display:flex;justify-content:space-between;align-items:flex-end;
+    padding:0 34px 30px;flex-wrap:wrap;gap:14px}
+  .contact{font-family:'Space Mono',monospace}
+  .contact .k{font-size:11.5px;letter-spacing:.14em;text-transform:uppercase;color:rgba(20,17,15,.6);margin-bottom:6px}
+  .contact a{font-family:'Archivo',sans-serif;font-weight:700;font-size:clamp(20px,3vw,30px);letter-spacing:-.01em;border-bottom:2px solid transparent;transition:.2s}
+  .contact a:hover{border-color:var(--accent);color:var(--accent)}
+  .glyph{font-family:'Space Mono',monospace;font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:rgba(20,17,15,.55)}
+
+  @media(max-width:640px){
+    .labels{gap:22px}
+    .photo{background-position:center 42%}
+    .foot{padding-bottom:24px}
+  }
+</style>
+</head>
+<body>
+  <div class="stage">
+    <div class="photo"></div>
+
+    <header class="top">
+      <div class="mark"><span class="dot"></span>Darkwire&nbsp;Talent</div>
+      <a href="#contact">Contact</a>
+    </header>
+
+    <main class="hero">
+      <div class="labels">
+        <span><b>01</b>Creator Representation</span>
+        <span><b>02</b>Brand Partnerships</span>
+        <span><b>03</b>Global Roster</span>
+      </div>
+      <h1>Darkwire</h1>
+      <p class="tagline">A talent agency representing the people shaping what comes next, and the brands that move with them.</p>
+    </main>
+
+    <footer class="foot" id="contact">
+      <div class="contact">
+        <div class="k">Partnerships &amp; Representation</div>
+        <a href="mailto:hello@darkwiretalent.com">hello@darkwiretalent.com</a>
+      </div>
+      <div class="glyph">#FR2 — Est. 2026</div>
+    </footer>
+  </div>
+</body>
+</html>
