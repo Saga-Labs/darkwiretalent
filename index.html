@@ -44,6 +44,7 @@
     -webkit-font-smoothing:antialiased;
   }
   a{color:inherit;text-decoration:none}
+  .js-mail{cursor:pointer}
 
   .stage{position:relative;min-height:100vh;width:100%;
     display:grid;grid-template-rows:auto 1fr auto;overflow:hidden}
@@ -108,7 +109,6 @@ document.head.appendChild(o)}initApollo();</script>
   "name": "Darkwire Talent",
   "alternateName": "Darkwire",
   "url": "https://darkwiretalent.com/",
-  "email": "hello@darkwiretalent.com",
   "description": "Darkwire Talent is a New York City influencer marketing and talent agency representing creators and building brand partnerships, sponsored content, and integrated campaigns.",
   "foundingDate": "2026",
   "image": "https://darkwiretalent.com/bg3.jpg",
@@ -123,7 +123,6 @@ document.head.appendChild(o)}initApollo();</script>
   "slogan": "A talent agency representing the people shaping what comes next, and the brands that move with them.",
   "contactPoint": {
     "@type": "ContactPoint",
-    "email": "hello@darkwiretalent.com",
     "contactType": "Partnerships & Representation"
   }
 }
@@ -139,7 +138,7 @@ document.head.appendChild(o)}initApollo();</script>
 
     <header class="top">
       <div class="mark"><span class="dot"></span>Darkwire&nbsp;Talent</div>
-      <a href="mailto:hello@darkwiretalent.com">Contact</a>
+      <a class="js-mail" role="button">Contact</a>
     </header>
 
     <main class="hero">
@@ -155,13 +154,24 @@ document.head.appendChild(o)}initApollo();</script>
     <footer class="foot" id="contact">
       <div class="contact">
         <div class="k">Partnerships &amp; Representation</div>
-        <a href="mailto:hello@darkwiretalent.com">hello@darkwiretalent.com</a>
+        <a class="js-mail" role="button">Get in touch</a>
       </div>
       <div class="glyph">New York City · Est. 2026</div>
     </footer>
   </div>
 
   <script>
+    /* Build the contact address at runtime so the literal email never appears
+       in the page source — keeps harvesters/spam bots from scraping it. */
+    (function(){
+      var user = 'hello', host = 'darkwiretalent.com';
+      var addr = user + String.fromCharCode(64) + host;
+      var links = document.querySelectorAll('.js-mail');
+      for (var k = 0; k < links.length; k++){
+        links[k].setAttribute('href', 'mailto:' + addr);
+      }
+    })();
+
     (function(){
       var photos = Array.prototype.slice.call(document.querySelectorAll('.photo'));
       var i = 0;
